@@ -80,6 +80,8 @@ public class FlutterNotificationChannelPlugin implements FlutterPlugin, MethodCa
                     .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
                     .build();
             notificationChannel.setSound(Settings.System.DEFAULT_NOTIFICATION_URI, attributes);
+          } else {
+            notificationChannel.setSound(null, null); // set silent sound (without this, cannot set headup option)
           }
           NotificationManager notificationManager =
                   (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
